@@ -1,4 +1,9 @@
 <app-header-comp></app-header-comp>
-<h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>
+<div class="content-wrapper">
+  <div class="cards-container flex">
+    <app-card
+      *ngFor="let cardItem of cardItems"
+      [cardItem]="cardItem"
+    ></app-card>
+  </div>
+</div>

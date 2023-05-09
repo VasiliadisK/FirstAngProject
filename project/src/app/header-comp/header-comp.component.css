@@ -1,3 +1,13 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+
+.header{
+        background-image: linear-gradient(to right, white , red);
+        padding-bottom: 10px;
+}
+.day{
+    margin-top: 20px;
+    font-size: 20px;
+}
