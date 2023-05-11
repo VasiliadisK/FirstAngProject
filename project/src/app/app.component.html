@@ -1,15 +1,14 @@
 <div class="content-wrapper">
   <app-header-comp></app-header-comp>
   <div class="flex justify-end">
-    <button class="button">&lt;</button>
-    <button class="button">&gt;</button>
+    <button class="button" (click)="prevWeek()" [disabled] = "start === 0">&lt;</button>
+    <button class="button" (click)="nextWeek()" [disabled] = "end === 21">&gt;</button>
   </div>
   <div class="cards-container flex">
-    <app-card
-      *ngFor="let cardItem of cardItems"
-      [cardItem]="cardItem"
-    ></app-card>
-
+    <ng-container *ngFor="let cardItem of cardItems;let i = index">
+      <app-card  *ngIf="i>=start && i<end" [cardItem]="cardItem">
+      </app-card>
+    </ng-container>
     
       
   </div>

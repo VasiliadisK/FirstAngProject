@@ -23,3 +23,7 @@
     font-weight: bold;
 
 }
+
+button:disabled {
+    background-color: lightcoral;
+ }

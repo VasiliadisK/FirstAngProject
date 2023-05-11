@@ -1,8 +1,10 @@
 <div class="card-item">
     <h4>{{ cardItem.day }}</h4>
-    <div >
+    <div>
       <ul>  
-        <li *ngFor="let toDoList of cardItem.toDo">{{toDoList}}</li>
+        <li *ngFor="let toDoObject of cardItem.toDo"><input type="checkbox"  class="accent-black cursor-pointer" (change)="onCheckboxChange($event,toDoObject)"
+          (click)="ToggleCheckUncheck(toDoObject)" ><span class="mx-2" [ngStyle]="{'text-decoration': toDoObject.isDone === true ? 'line-through' : 'none'}">{{toDoObject.task}}</span>
+        </li>
       </ul>
     </div>
   </div>

@@ -10,5 +10,20 @@ import { MockCards } from './models/card-item-mock';
 })
 
 export class AppComponent{
+  start:number = 0;
+  end:number = 7;
   cardItems: ICardItem[] = MockCards;
+
+  nextWeek(){
+
+    this.start +=7;
+    this.end +=7;
+  }
+
+  prevWeek(){
+    this.start -=7;
+    this.end -=7
+  }
+
 }
+

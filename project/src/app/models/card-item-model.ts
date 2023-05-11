@@ -1,4 +1,4 @@
 export interface ICardItem {
     day:string;
-    toDo:string[];
+    toDo:Array<any>;
 }
