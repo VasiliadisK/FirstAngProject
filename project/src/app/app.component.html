@@ -1,15 +1,16 @@
 <div class="content-wrapper">
   <app-header-comp></app-header-comp>
+  <div class="flex justify-end">
+    <button class="button">&lt;</button>
+    <button class="button">&gt;</button>
+  </div>
   <div class="cards-container flex">
     <app-card
       *ngFor="let cardItem of cardItems"
       [cardItem]="cardItem"
     ></app-card>
 
-    <div class="flex justify-items-end movebuttons">
-      <button class="button">&lt;</button>
-      <button class="button">&gt;</button>
-    </div>
+    
       
   </div>
   

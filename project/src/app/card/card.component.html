@@ -1,8 +1,8 @@
 <div class="card-item">
     <h4>{{ cardItem.day }}</h4>
-    <div *ngFor="let toDoList of cardItem.toDo">
+    <div >
       <ul>  
-        <li>{{toDoList}}</li>
+        <li *ngFor="let toDoList of cardItem.toDo">{{toDoList}}</li>
       </ul>
     </div>
   </div>
