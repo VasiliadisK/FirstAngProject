@@ -9,10 +9,18 @@ import { MockCards } from './models/card-item-mock';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent{
+export class AppComponent implements OnInit {
   start:number = 0;
   end:number = 7;
-  cardItems: ICardItem[] = MockCards;
+  cardItems: ICardItem[];
+
+
+  ngOnInit(): void {
+      
+    this.cardItems = localStorage.getItem(`Tasks`) ? JSON.parse(localStorage.getItem(`Tasks`)!) : MockCards;     
+
+    
+  }
 
   nextWeek(){
 
@@ -25,5 +33,11 @@ export class AppComponent{
     this.end -=7
   }
 
-}
+  saveTasks(){
+    
+    localStorage.setItem(`Tasks`,JSON.stringify(this.cardItems));      
 
+  }
+
+  
+}

@@ -1,10 +1,19 @@
-<div class="card-item">
+<div class="card-item card">
+  <div class="flex justify-between">
     <h4>{{ cardItem.day }}</h4>
-    <div>
-      <ul>  
-        <li *ngFor="let toDoObject of cardItem.toDo"><input type="checkbox"  class="accent-black cursor-pointer" (change)="onCheckboxChange($event,toDoObject)" [checked]="toDoObject.isDone"
-          (click)="ToggleCheckUncheck(toDoObject)" ><span class="mx-2" [ngStyle]="{'text-decoration': toDoObject.isDone === true ? 'line-through' : 'none'}">{{toDoObject.task}}</span>
-        </li>
-      </ul>
-    </div>
+    <button class="bold text-2xl add" (click)="addTask()">+</button>
+  </div>  
+  <div>
+    <ul>
+      <li *ngFor="let toDoObject of cardItem.toDo" class="task">
+        <div class="flex">
+          <input type="checkbox"  class="accent-black cursor-pointer" (change)="onCheckboxChange($event,toDoObject)" [checked]="toDoObject.isDone"
+          (click)="ToggleCheckUncheck(toDoObject)" >
+          <input type="text" class="mx-2 bg-transparent border" [ngStyle]="{'text-decoration': toDoObject.isDone === true ? 'line-through' : 'none'}" value={{toDoObject.task}}>
+          <button class="text-3xl bold delete" (click)="Delete(toDoObject.task)">x</button>
+        </div>
+      </li>
+    </ul>
   </div>
+
+</div>

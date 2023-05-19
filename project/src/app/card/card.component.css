@@ -9,3 +9,21 @@
     color: white;
     margin: 5px;
   }
+
+.add
+{
+  opacity: 0;
+}
+
+.card:hover .add, .add:hover{
+  opacity: 100;
+}
+
+.delete
+{
+  opacity: 0;
+}
+
+.task:hover .delete, .delete:hover{
+  opacity: 100;
+}
