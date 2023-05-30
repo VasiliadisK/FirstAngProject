@@ -25,7 +25,6 @@ export class ModalComponent {
 
   onSubmit(){
     this.Service.addTaskToDay(this.NewTask.value.task!);
-    
   }
   
 }

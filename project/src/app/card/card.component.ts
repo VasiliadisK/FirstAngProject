@@ -17,9 +17,7 @@ export class CardComponent implements OnInit{
   
   
   ngOnInit(): void {
-    this.Service.taskToBeAdded.subscribe(res=>{
-      this.cardItem.toDo.push({task: res,isDone:false});
-    })
+   
   }
 
   ToggleCheckUncheck(task:any){
@@ -38,10 +36,9 @@ export class CardComponent implements OnInit{
   }
 
 
-  addTask(){
+  addTask(day:string){
     this.Service.openModalClicked();
-    
-
+    this.Service.selectedDay.next(day);
 
   }
 

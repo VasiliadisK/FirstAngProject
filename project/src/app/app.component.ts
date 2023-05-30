@@ -23,11 +23,15 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
       
-    this.cardItems = localStorage.getItem(`Tasks`) ? JSON.parse(localStorage.getItem(`Tasks`)!) : MockCards;     
     this.Service.openModal.subscribe(result => {
       this.showModal = result;
     })
+    this.Service.cardItems.subscribe(result => {
+      this.cardItems = result;
+
+    })
     
+
   }
 
   nextWeek(){
