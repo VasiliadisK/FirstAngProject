@@ -1,6 +1,6 @@
 <div class="content-wrapper">
   <app-header-comp></app-header-comp>
-  <button class="rounded-full w-[35px] h-[30px] mt-5 bold text-3xl" (click)="saveTasks()">Save</button>
+  <button class="w-[35px] h-[30px] mt-5 bold text-3xl rounded-full" (click)="saveTasks()">Save</button>
   <div class="flex justify-end">
     <button class="button" (click)="prevWeek()" [disabled] = "start === 0">&lt;</button>
     <button class="button" (click)="nextWeek()" [disabled] = "end === 21">&gt;</button>
@@ -11,9 +11,8 @@
       </app-card>
     </ng-container>
     
-
-    
-      
   </div>
   
 </div>
+
+<app-modal *ngIf="showModal"></app-modal> 

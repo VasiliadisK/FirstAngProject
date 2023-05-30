@@ -1,0 +1,16 @@
+<div class="modal-backdrop">
+    <div class="container">
+        <div class="top border flex justify-between p-2">
+            <div class="title">
+                Add new task
+            </div>
+            <button class="text-2xl bold border rounded-full exit" (click)="exitModal()">x</button> 
+        </div>
+        <div class="body p-5 border">
+            <form [formGroup]="NewTask" (ngSubmit)="onSubmit()">
+                <input type="text" class="mx-2 bg-transparent border" placeholder="New task" id="task" formControlName="task">
+                <button type="submit" class="bold border rounded-full add">Add</button> 
+            </form>
+        </div>
+    </div>
+</div>

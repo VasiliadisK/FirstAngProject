@@ -1,4 +1,9 @@
 export interface ICardItem {
     day:string;
-    toDo:Array<any>;
+    toDo:Task[];
+}
+
+export interface Task{
+    task:string
+    isDone: boolean
 }

@@ -1,19 +1,26 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Injectable, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { ICardItem } from '../models/card-item-model';
-import { NgStyle } from '@angular/common';
+import {ModalServiceService} from '../services/modal-service.service';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css'],
 })
-export class CardComponent implements OnInit {
+
+@Injectable()
+export class CardComponent implements OnInit{
+
   @Input() cardItem: ICardItem;
 
-  constructor() {
-  }
+  constructor(private Service:ModalServiceService) {}
   
-  ngOnInit(): void {}
+  
+  ngOnInit(): void {
+    this.Service.taskToBeAdded.subscribe(res=>{
+      this.cardItem.toDo.push({task: res,isDone:false});
+    })
+  }
 
   ToggleCheckUncheck(task:any){
     task.isDone = !task.isDone;    
@@ -32,9 +39,10 @@ export class CardComponent implements OnInit {
 
 
   addTask(){
+    this.Service.openModalClicked();
+    
 
-    this.cardItem.toDo.push([{task: "",isDone:false}]);
-   
+
   }
 
   Delete(Task: any){
@@ -44,5 +52,7 @@ export class CardComponent implements OnInit {
         this.cardItem.toDo = this.cardItem.toDo.filter(t => t !==  this.cardItem.toDo[i]);
     }
   }
+  
+  
   
 }

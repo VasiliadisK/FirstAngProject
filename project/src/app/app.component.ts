@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ICardItem } from './models/card-item-model';
 import { MockCards } from './models/card-item-mock';
+import { ModalServiceService } from './services/modal-service.service';
 
 
 @Component({
@@ -10,15 +11,22 @@ import { MockCards } from './models/card-item-mock';
 })
 
 export class AppComponent implements OnInit {
+
+  show:string;
+  showModal:boolean;
   start:number = 0;
   end:number = 7;
   cardItems: ICardItem[];
 
+  constructor(private Service:ModalServiceService){
 
+  }
   ngOnInit(): void {
       
     this.cardItems = localStorage.getItem(`Tasks`) ? JSON.parse(localStorage.getItem(`Tasks`)!) : MockCards;     
-
+    this.Service.openModal.subscribe(result => {
+      this.showModal = result;
+    })
     
   }
 
@@ -39,5 +47,6 @@ export class AppComponent implements OnInit {
 
   }
 
+  
   
 }

@@ -1,0 +1,42 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+.exit{
+    background-color: darkred;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.add{
+    background-color: darkred;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.title{
+    font-weight: bold;
+    
+}
+
+.modal-backdrop{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.container{
+    width: 50vh;
+    position: fixed;
+    top: 50%;
+    left: 30%;
+    background-color: white;
+    z-index: 2;
+}
